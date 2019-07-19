@@ -1,3 +1,5 @@
+This is a fork of https://github.com/bajeluk/surrogate-cmaes. Reason why it is not forked on github is because git-lfs is not allowed on public forks.
+
 Surrogate CMA-ES
 ================
 
