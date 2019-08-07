@@ -39,13 +39,6 @@ classdef HansenModel < Model
             obj.predictionType = defopts(modelOptions, 'predictionType', 'fValues');
             obj.transformCoordinates = defopts(modelOptions, 'transformCoordinates', false);
             
-            %mterms = defopts(modelOptions, 'modelterms', 1);
-            %if (numel(mterms) == 1)
-            %    obj.modelterms = buildcompletemodel(mterms, numel(xMean));
-            %else
-            %    obj.modelterms = mterms;
-            %end
-            
         end
         
         function nData = getNTrainData(obj)

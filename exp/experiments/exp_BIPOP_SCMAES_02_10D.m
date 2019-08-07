@@ -41,19 +41,17 @@ sgParamDef(5).name   = 'evoControlBestFromExtension';   % ratio of expanded popu
 sgParamDef(5).values = { [] };
 sgParamDef(6).name   = 'evoControlTrainRange';          % will be multip. by sigma
 sgParamDef(6).values = {8}; % {8, 16}; % {2, 3, 4, 6, 8};
-sgParamDef(7).name   = 'evoControlTrainNArchivePoints'; % will be myeval()'ed, 'nRequired', 'nEvaluated', 'lambda', 'dim' can be used
-sgParamDef(7).values = {'15*dim'};
-sgParamDef(8).name   = 'evoControlSampleRange';         % will be multip. by sigma
-sgParamDef(8).values = {1};
+sgParamDef(7).name   = 'evoControlSampleRange';         % will be multip. by sigma
+sgParamDef(7).values = {1};
 
-sgParamDef(9).name   = 'evoControlOrigGenerations';
-sgParamDef(9).values = {1};
-sgParamDef(10).name   = 'evoControlModelGenerations';
-sgParamDef(10).values = {1, 5};
-sgParamDef(11).name   = 'evoControlValidatePoints';
-sgParamDef(11).values = {0};
-sgParamDef(12).name   = 'modelOpts';
-sgParamDef(12).values = { struct( ...
+sgParamDef(8).name   = 'evoControlOrigGenerations';
+sgParamDef(8).values = {1};
+sgParamDef(9).name   = 'evoControlModelGenerations';
+sgParamDef(9).values = {1, 5};
+sgParamDef(10).name   = 'evoControlValidatePoints';
+sgParamDef(10).values = {0};
+sgParamDef(11).name   = 'modelOpts';
+sgParamDef(11).values = { struct( ...
   'transformCoordinates', true, ...
   'useShift', false, ...
   'trainAlgorithm', 'fmincon', ...
@@ -62,6 +60,7 @@ sgParamDef(12).values = { struct( ...
   'cov', log([0.5; 2])), ...
   'nBestPoints', 0, ...
   'minLeaf', 2, ...
+  'trainsetSizeMax',     { '15*dim' }, ...
   'inputFraction', 1) };
 
 % BIPOP = true && useSCMAES = true  stands for BIPOP-S-CMA-ES
