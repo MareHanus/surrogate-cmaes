@@ -38,7 +38,7 @@ classdef HansenModel < Model
             % general model prediction options
             obj.predictionType = defopts(modelOptions, 'predictionType', 'fValues');
             obj.transformCoordinates = defopts(modelOptions, 'transformCoordinates', false);
-            
+           
         end
         
         function nData = getNTrainData(obj)
@@ -57,8 +57,13 @@ classdef HansenModel < Model
             
             Z = modelValues(obj, X);
             
-            obj.modelParams = pinv(Z) * y;
+            [points, ~] = size(y);
+            weights = linspace(obj.options.maxScalingFactor, 1, points);
+            scaledY = weights' .* y;
             
+            scaledZ = Z .* weights';
+                      
+            obj.modelParams = pinv(scaledZ) * scaledY;
         end
         
         function [obj] = createModelTerms(obj, X)
